@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="671.9609375" prefWidth="859.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.ScenarioController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <ToolBar layoutY="0.0" minHeight="14.9609375" prefHeight="32.00093750000002" prefWidth="588.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <Button mnemonicParsing="false" onAction="#close" text="閉じる" />
+      </items>
+    </ToolBar>
+    <SplitPane dividerPositions="0.6044326697820461" focusTraversable="true" orientation="VERTICAL" prefHeight="433.9609375" prefWidth="725.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0">
+          <children>
+            <HBox layoutY="0.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="33.0" prefWidth="79.0" text="設定ファイル">
+                  <font>
+                    <Font size="14.0" fx:id="x2" />
+                  </font>
+                  <HBox.margin>
+                    <Insets top="5.0" fx:id="x1" />
+                  </HBox.margin>
+                </Label>
+                <TextField id="sceconf" fx:id="sceconfig" editable="false" prefHeight="33.0" prefWidth="461.0" style="-fx-background-color: #D3D3D3" HBox.margin="$x1" />
+                <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="79.0" text="開く">
+                  <HBox.margin>
+                    <Insets left="3.0" right="3.0" top="5.0" />
+                  </HBox.margin>
+                </Button>
+              </children>
+            </HBox>
+            <HBox layoutY="38.0" prefHeight="-1.0" prefWidth="723.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x2" prefHeight="33.0" prefWidth="79.0" text="業務名">
+                  <HBox.margin>
+                    <Insets top="5.0" fx:id="x1" />
+                  </HBox.margin>
+                </Label>
+                <TextField id="sceconf" editable="false" prefHeight="33.0" prefWidth="461.0" style="-fx-background-color: #D3D3D3" HBox.margin="$x1" />
+                <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="79.0" text="リロード">
+                  <HBox.margin>
+                    <Insets left="2.0" right="2.0" top="5.0" />
+                  </HBox.margin>
+                </Button>
+              </children>
+            </HBox>
+            <HBox layoutY="76.0" prefHeight="306.0" prefWidth="723.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x2" prefHeight="33.0" prefWidth="79.0" text="シナリオ概要">
+                  <HBox.margin>
+                    <Insets top="5.0" fx:id="x1" />
+                  </HBox.margin>
+                </Label>
+                <TextArea prefHeight="301.0" prefWidth="778.0" style="-fx-background-color: #D3D3D3" wrapText="true">
+                  <HBox.margin>
+                    <Insets right="5.0" top="5.0" />
+                  </HBox.margin>
+                </TextArea>
+              </children>
+            </HBox>
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <children>
+            <TableView fx:id="SceTable" prefHeight="323.0" prefWidth="723.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="51.0" text="SEQ" fx:id="seq" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="180.0" text="項目名" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="253.0" text="項目値" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="324.0" text="項目概要" />
+              </columns>
+            </TableView>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</AnchorPane>

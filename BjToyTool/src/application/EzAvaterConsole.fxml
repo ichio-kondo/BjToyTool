@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-background-color 0xccf9ffff?>
+
+<AnchorPane minWidth="797.00001953125" prefHeight="665.0" prefWidth="920.00001953125" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.EzAvaterConsoleController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <MenuBar prefWidth="701.2283935546875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="ファイル">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#onMenuClose" text="EzAvaterConsole終了" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="設定">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#ezavater" text="EZAvater.exeのPATH設定" />
+            <MenuItem mnemonicParsing="false" onAction="#allConfigOpen" text="シナリオ一覧ファイル設定" />
+            <MenuItem mnemonicParsing="false" onAction="#historyDirSet_M" text="実行履歴ファイル格納場所設定" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="実行履歴">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#historyOpen" text="実行履歴" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="ヘルプ">
+          <items>
+            <MenuItem mnemonicParsing="false" text="操作手順書" />
+            <MenuItem mnemonicParsing="false" text="運用手順書" />
+            <MenuItem mnemonicParsing="false" text="業務シナリオ説明" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <Button fx:id="exe" layoutX="494.0" layoutY="42.0" mnemonicParsing="false" onAction="#execute" prefHeight="28.0" prefWidth="145.0" text="シナリオ実行" />
+    <Label fx:id="lGyomu" alignment="CENTER_LEFT" layoutX="22.0" layoutY="38.0" prefHeight="36.0" prefWidth="145.0" text="シナリオ名（業務名）" textAlignment="LEFT" textOverrun="CLIP">
+      <font>
+        <Font size="15.0" />
+      </font>
+    </Label>
+    <ComboBox fx:id="gCombo" layoutX="167.0" layoutY="42.0" onAction="#comboAction" prefHeight="28.0" prefWidth="316.0" />
+    <Label id="status" alignment="CENTER_LEFT" contentDisplay="RIGHT" layoutX="61.0" layoutY="178.0" prefHeight="36.0" prefWidth="106.0" text="実行ステータス：">
+      <font>
+        <Font size="14.0" fx:id="x1" />
+      </font>
+    </Label>
+    <SplitPane dividerPositions="0.49884526558891457" focusTraversable="true" orientation="VERTICAL" prefHeight="435.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="230.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="842.0">
+          <children>
+            <TextArea fx:id="message" editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="846.0" text="" wrapText="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <children>
+            <TextArea fx:id="ezlog" disable="false" editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="851.0" wrapText="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <TextField fx:id="statusStr" layoutX="167.0" layoutY="182.0" prefHeight="28.0" prefWidth="316.0" style="-fx-background-color: #D3D3D3" />
+    <Button layoutX="494.0" layoutY="77.0" mnemonicParsing="false" onAction="#showedit" prefHeight="28.0" prefWidth="145.0" text="Ezavaterで編集" />
+    <Button fx:id="clear" layoutX="494.0" layoutY="182.0" minHeight="17.0" mnemonicParsing="false" onAction="#clearText" prefHeight="28.0" prefWidth="145.0" text="クリア" />
+    <ImageView fitHeight="83.99998474121094" fitWidth="83.99998474121094" layoutX="828.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@BJ%20128px.png" />
+      </image>
+    </ImageView>
+    <Label id="status" alignment="CENTER_LEFT" contentDisplay="RIGHT" font="$x1" layoutX="36.0" layoutY="142.0" prefHeight="36.0" prefWidth="131.0" text="実行結果格納場所" />
+    <TextField id="statusStr" fx:id="nowdateDir" layoutX="167.0" layoutY="146.0" prefHeight="28.0" prefWidth="316.0" style="-fx-background-color: #D3D3D3" />
+    <Button id="clear" fx:id="exedirButton" layoutX="494.0" layoutY="147.0" minHeight="17.0" mnemonicParsing="false" onAction="#exedir" prefHeight="28.0" prefWidth="144.9998779296875" text="実行結果格納場所を開く" />
+    <TextField id="statusStr" fx:id="sectext" layoutX="167.0" layoutY="78.0" prefHeight="28.0" prefWidth="316.0" style="-fx-background-color: #D3D3D3" />
+    <Label id="status" alignment="CENTER_LEFT" contentDisplay="RIGHT" font="$x1" layoutX="24.0" layoutY="72.0" prefHeight="36.0" prefWidth="153.0" text="シナリオファイル（SCE）" />
+    <Button id="clear" layoutX="647.0" layoutY="182.0" minHeight="17.0" mnemonicParsing="false" onAction="#historyOpenB" prefHeight="28.0" prefWidth="170.0" text="シナリオ実行履歴" />
+    <ProgressIndicator fx:id="indicator" disable="false" focusTraversable="false" layoutX="321.0" layoutY="231.0" opacity="1.0" prefHeight="252.0" prefWidth="280.0" progress="0.0" />
+    <Button layoutX="647.0" layoutY="114.0" mnemonicParsing="false" onAction="#showSecondWindow" prefHeight="28.0" prefWidth="170.0" text="シナリオ設定情報を見る" />
+    <Button id="exe" layoutX="648.0" layoutY="43.0" mnemonicParsing="false" onAction="#scenarioOpen" prefHeight="28.0" prefWidth="170.0" text="シナリオ実行一覧を開く" />
+    <Button layoutX="494.0" layoutY="111.0" mnemonicParsing="false" onAction="#inputdir" prefHeight="28.0" prefWidth="145.0" text="INPUT場所を開く" />
+    <TextField id="statusStr" layoutX="167.0" layoutY="111.0" prefHeight="28.0" prefWidth="316.0" style="-fx-background-color: #D3D3D3" />
+    <Label id="status" alignment="CENTER_LEFT" contentDisplay="RIGHT" font="$x1" layoutX="17.0" layoutY="106.0" prefHeight="36.0" prefWidth="153.0" text="シナリオのINPUTフォルダ" />
+    <Button layoutX="648.0" layoutY="77.0" mnemonicParsing="false" onAction="#showSecondWindow" prefHeight="28.0" prefWidth="170.0" text="プロセスシナリオフォルダを開く" />
+  </children>
+  <padding>
+    <Insets />
+  </padding>
+  <rotationAxis>
+    <Point3D />
+  </rotationAxis>
+</AnchorPane>

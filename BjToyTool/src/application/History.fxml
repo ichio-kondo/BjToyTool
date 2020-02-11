@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="-1.0" minWidth="-1.0" prefHeight="566.0" prefWidth="962.999977929685" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.HistoryController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="49.0" prefWidth="865.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+      <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="34.0" prefWidth="62.0" text="業務名" textAlignment="LEFT">
+          <font>
+            <Font size="12.0" fx:id="x1" />
+          </font>
+          <HBox.margin>
+            <Insets />
+          </HBox.margin>
+        </Label>
+        <ComboBox id="userCombo" fx:id="gyomuCombo" prefHeight="34.0" prefWidth="184.0" />
+        <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="34.0" prefWidth="84.0" text="実行USER" textAlignment="CENTER" />
+        <ComboBox fx:id="userCombo" prefHeight="34.0" prefWidth="121.0" />
+        <Label font="$x1" prefHeight="34.0" prefWidth="84.0" text="実行開始年月">
+          <HBox.margin>
+            <Insets left="15.0" />
+          </HBox.margin>
+        </Label>
+        <ComboBox fx:id="dateCombo" maxWidth="172.0" minWidth="48.0" prefHeight="34.0" prefWidth="108.0" />
+        <Button mnemonicParsing="false" onAction="#refreshOpen" prefHeight="37.0" prefWidth="71.0" text="再検索">
+          <HBox.margin>
+            <Insets left="10.0" />
+          </HBox.margin>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#clear" prefHeight="29.0" prefWidth="102.0" text="検索条件クリア">
+          <HBox.margin>
+            <Insets left="5.0" right="5.0" />
+          </HBox.margin>
+        </Button>
+      </children>
+      <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+    </HBox>
+    <SplitPane dividerPositions="0.4392156862745098" focusTraversable="true" orientation="VERTICAL" prefHeight="512.0" prefWidth="865.0000999999975" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="49.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="251.0" prefWidth="864.0000999999975">
+          <children>
+            <TableView fx:id="historyTable" disable="false" editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="251.0" prefWidth="864.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn minWidth="20.0" prefWidth="100.0" text="ステータス" fx:id="status" />
+                <TableColumn minWidth="30.0" prefWidth="150.0" text="業務名" fx:id="gyomu" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="実行USER" fx:id="user" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="215.0" text="実行開始日時" fx:id="startDate" />
+                <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="215.0" text="実行終了日時" fx:id="endDate" />
+                <TableColumn maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="実行結果場所" fx:id="gyoumuDir" />
+                <TableColumn maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="列X" fx:id="logfile" />
+              </columns>
+            </TableView>
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <children>
+            <TabPane fx:id="tabs" prefHeight="96.0" prefWidth="158.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="1.7976931348623157E308" tabMinHeight="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab text="業務実行ログ">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0">
+                      <children>
+                        <TextArea id="ぉ" fx:id="logTextArea" prefHeight="175.0" prefWidth="844.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="EZAvaterシステムログ">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0">
+                      <children>
+                        <TextArea fx:id="ezlog" prefHeight="-1.0" prefWidth="-1.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="107.0" prefHeight="107.0" prefWidth="399.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.ConfigController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TextField layoutX="14.0" layoutY="40.0" prefHeight="28.0" prefWidth="325.0" />
+    <Button fx:id="setButton" layoutX="339.0" layoutY="40.0" mnemonicParsing="false" onAction="#setSCE" prefHeight="28.0" text="選択" />
+    <Label layoutX="14.0" layoutY="14.0" text="実行場所を記載したシナリオ一覧ファイル（SCE.proj)を選択して下さい。" />
+    <HBox alignment="CENTER" prefHeight="-1.0" prefWidth="432.0000999999975" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="107.0">
+      <children>
+        <Button id="Ok" fx:id="okbutton" mnemonicParsing="false" onAction="#ok" text="OK">
+          <HBox.margin>
+            <Insets right="10.0" />
+          </HBox.margin>
+        </Button>
+        <Button fx:id="closebutton" mnemonicParsing="false" onAction="#close" text="キャンセル" />
+      </children>
+    </HBox>
+  </children>
+  <padding>
+    <Insets bottom="10.0" />
+  </padding>
+</AnchorPane>
